@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumina — one private morning moment</title>
+<title>Lumina - one private morning moment</title>
 <meta name="description" content="A private 30-second Bella voice manifestation each morning. Feel grounded, beautiful, supported, and closer to the woman you are becoming.">
 <style>
   :root {
@@ -29,6 +29,11 @@
   nav a:hover { color:var(--clay); }
   .button { display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:var(--radius-pill); padding:12px 18px; background:var(--slate); color:var(--ivory); text-decoration:none; font-family:var(--mono); font-size:13px; border:1.5px solid var(--slate); box-shadow:0 8px 20px rgba(20,20,19,.10); }
   .button.secondary { background:transparent; color:var(--slate); box-shadow:none; }
+  .telegram-note { margin-top:12px; max-width:560px; display:flex; gap:10px; align-items:flex-start; background:rgba(42,171,238,.08); border:1.5px solid rgba(42,171,238,.22); border-radius:12px; padding:12px 14px; color:var(--gray-700); font-size:14px; }
+  .telegram-mark { flex:0 0 auto; width:28px; height:28px; border-radius:50%; background:#2AABEE; color:white; display:grid; place-items:center; font-size:14px; font-weight:800; }
+  .install-strip { margin-top:18px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; max-width:620px; }
+  .install-step { background:var(--white); border:var(--border); border-radius:12px; padding:12px; font-size:13px; color:var(--gray-700); }
+  .install-step strong { display:block; color:var(--slate); font-family:var(--serif); font-size:17px; font-weight:500; margin-bottom:4px; }
   .hero { display:grid; grid-template-columns:minmax(0,1.05fr) 360px; gap:44px; align-items:center; }
   .eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--gray-500); margin-bottom:12px; }
   h1 { font-family:var(--serif); color:var(--slate); font-weight:500; font-size:58px; line-height:1.02; letter-spacing:-.035em; max-width:720px; }
@@ -40,11 +45,13 @@
   .sample-player audio { width:100%; display:block; }
   .phone { background:var(--slate); border-radius:34px; padding:14px; box-shadow:0 24px 70px rgba(20,20,19,.18); transform:rotate(1deg); }
   .screen { background:#efeae1; border-radius:24px; min-height:610px; padding:20px 16px; overflow:hidden; }
+  .tg-status { display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; color:rgba(23,20,17,.55); margin-bottom:10px; padding:0 4px; }
   .tg-top { display:flex; align-items:center; gap:10px; padding:4px 2px 18px; border-bottom:1px solid rgba(20,20,19,.08); }
   .avatar { width:34px; height:34px; border-radius:50%; object-fit:cover; border:1px solid var(--oat); }
   .tg-name { font-weight:700; color:var(--slate); font-size:14px; }
   .tg-sub { font-family:var(--mono); color:var(--gray-500); font-size:10px; }
   .bubble { background:var(--white); border-radius:18px 18px 18px 6px; padding:14px 14px; margin-top:18px; box-shadow:0 2px 0 rgba(20,20,19,.04); font-size:14px; color:var(--gray-700); }
+  .user-bubble { margin-left:auto; max-width:72%; background:#DFF2C7; border-radius:18px 18px 6px 18px; padding:10px 13px; margin-top:14px; color:#233018; font-size:14px; }
   .voice { margin-top:14px; display:flex; align-items:center; gap:10px; background:var(--white); border-radius:22px 22px 22px 8px; padding:10px 12px; box-shadow:0 2px 0 rgba(20,20,19,.04); }
   .play { width:34px; height:34px; border-radius:50%; background:var(--clay); color:var(--white); display:grid; place-items:center; font-size:13px; }
   .wave { display:flex; gap:3px; align-items:center; flex:1; }
@@ -76,7 +83,7 @@
     .hero, .price { grid-template-columns:1fr; }
     h1 { font-size:42px; }
     .phone { max-width:380px; margin:0 auto; }
-    .grid-3 { grid-template-columns:1fr; }
+    .grid-3, .install-strip { grid-template-columns:1fr; }
     footer { flex-direction:column; }
     .page { padding-bottom:118px; }
     .mobile-sticky { display:block; position:fixed; left:14px; right:14px; bottom:14px; z-index:10; background:rgba(250,249,245,.94); border:var(--border); border-radius:18px; padding:10px; box-shadow:0 14px 40px rgba(20,20,19,.16); backdrop-filter:blur(10px); }
@@ -93,7 +100,7 @@
         <a href="#how">How it works</a>
         <a href="#price">Price</a>
         <a href="#faq">FAQ</a>
-        <a class="button" href="https://t.me/luminahermesagentbot">Try free sample</a>
+        <a class="button" href="https://t.me/luminahermesagentbot">Open Telegram sample</a>
       </nav>
     </header>
 
@@ -102,20 +109,23 @@
         <div>
           <p class="eyebrow">Private morning ritual · 30-second Bella voice</p>
           <h1>Feel chosen before the day starts asking things from you.</h1>
-          <p class="lead">Lumina is one soft morning voice note that brings you back to yourself — grounded, beautiful, supported, and closer to the woman you are becoming.</p>
+          <p class="lead">Lumina is one soft morning voice note that brings you back to yourself, grounded, beautiful, supported, and closer to the woman you are becoming.</p>
           <div class="sample-player">
             <p>Hear the feeling first</p>
             <audio controls preload="metadata" src="assets/lumina-website-sample.mp3">Your browser does not support audio playback.</audio>
           </div>
           <div class="cta-row">
-            <a class="button" href="https://t.me/luminahermesagentbot">Try free sample</a>
+            <a class="button" href="https://t.me/luminahermesagentbot">Open Telegram sample</a>
             <a class="button secondary" href="#price">See membership</a>
           </div>
-          <p class="microcopy">$99/year · one free sample · 7-day refund window · no new app to download</p>
+          <p class="microcopy">$99/year · one free sample · 7-day refund window · delivered in Telegram</p>
+          <div class="telegram-note"><span class="telegram-mark">↗</span><span><strong>This opens Telegram.</strong> If Telegram is already installed, the bot opens directly. If not, Telegram will guide you to install the free app first, then return to Lumina.</span></div>
+          <div class="install-strip"><div class="install-step"><strong>1. Tap the button</strong>Open Lumina in Telegram.</div><div class="install-step"><strong>2. Press Start</strong>Enter your first name.</div><div class="install-step"><strong>3. Hear one free voice</strong>Then choose whether to subscribe.</div></div>
         </div>
 
         <div class="phone" aria-label="Mock Telegram preview">
           <div class="screen">
+            <div class="tg-status"><span>9:41</span><span>Telegram</span></div>
             <div class="tg-top">
               <img class="avatar" src="assets/lumina-profile.png" alt="Lumina">
               <div>
@@ -123,13 +133,16 @@
                 <div class="tg-sub">private morning ritual</div>
               </div>
             </div>
-            <div class="bubble">Good morning, Maya ✨<br><br>Before the day starts, take this moment for you.</div>
+            <div class="user-bubble">/start</div>
+            <div class="bubble">Welcome to Lumina ✨<br><br>What is your first name?</div>
+            <div class="user-bubble">Maya</div>
+            <div class="bubble">Good morning, Maya ✨<br><br>Here is one free Bella voice sample.</div>
             <div class="voice">
               <div class="play">▶</div>
               <div class="wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
               <div class="duration">0:30</div>
             </div>
-            <div class="bubble">Day 7. You’re showing up for her. Come back tomorrow.</div>
+            <div class="bubble">If it feels right, Stripe checkout opens next. No card numbers are stored by Lumina.</div>
           </div>
         </div>
       </section>
@@ -144,9 +157,9 @@
         <p class="eyebrow">Why it feels easy</p>
         <h2>A ritual small enough to keep.</h2>
         <div class="grid-3">
-          <div class="card"><strong>1 · Hear it</strong><p>Listen to the sample, then open Lumina in Telegram and enter your first name.</p></div>
-          <div class="card"><strong>2 · Receive</strong><p>Each morning, one soft Bella voice note arrives where you already are. No extra routine to manage.</p></div>
-          <div class="card"><strong>3 · Become</strong><p>Your streak grows as you keep returning to the woman you are becoming. Pause anytime.</p></div>
+          <div class="card"><strong>1 · Open Telegram</strong><p>Tap the button. If Telegram is not installed, Telegram shows you how to install the free app first.</p></div>
+          <div class="card"><strong>2 · Try the sample</strong><p>Press Start, enter your first name, and receive one free Bella voice message before payment.</p></div>
+          <div class="card"><strong>3 · Subscribe only if it fits</strong><p>Stripe handles checkout. Lumina delivers the daily ritual in Telegram after payment.</p></div>
         </div>
       </section>
 
@@ -158,7 +171,7 @@
             <p class="eyebrow">Lumina Annual</p>
             <div class="amount">$99<span>/year</span></div>
             <p>365 private Bella voice manifestations delivered in Telegram, one each morning.</p>
-            <div class="cta-row" style="margin-top:18px"><a class="button" href="https://t.me/luminahermesagentbot">Try free sample</a></div>
+            <div class="cta-row" style="margin-top:18px"><a class="button" href="https://t.me/luminahermesagentbot">Open Telegram sample</a></div>
           </div>
           <div class="card">
             <strong>What you get</strong>
@@ -166,7 +179,7 @@
               <li>A soft 30-second morning ritual</li>
               <li>Premium Bella voice delivery</li>
               <li>365 days of manifestations</li>
-              <li>Telegram delivery with no new app</li>
+              <li>Telegram delivery with clear install guidance if needed</li>
               <li>Streak tracking and simple support</li>
               <li>7-day refund window</li>
             </ul>
@@ -178,7 +191,7 @@
         <p class="eyebrow">FAQ</p>
         <h2>Quick answers before you join.</h2>
         <details open><summary>What am I really buying?</summary><p>A feeling you can return to every morning: grounded, beautiful, supported, and connected to the woman you are becoming. The delivery is a 30-second Telegram voice note.</p></details>
-        <details><summary>Do I need to install another app?</summary><p>No. Lumina runs in Telegram. Tap Start, subscribe, and your daily voice arrives there.</p></details>
+        <details><summary>What if I do not have Telegram?</summary><p>Tap Open Telegram sample. If Telegram is not installed, Telegram will guide you to install the free app first. After that, open Lumina, press Start, and receive your free sample.</p></details>
         <details><summary>Can I get a refund?</summary><p>Yes. If Lumina is not for you, message support within 7 days of purchase. After 7 days, annual memberships are not prorated.</p></details>
         <details><summary>Do you store my card?</summary><p>No. Payments are handled by Stripe. Lumina does not store card numbers.</p></details>
         <details><summary>Is this therapy or medical advice?</summary><p>No. Lumina is a self-care and manifestation ritual. It is not therapy, medical advice, or a mental-health service.</p></details>
@@ -190,6 +203,6 @@
       <span>Founder-run v1 · Telegram support</span>
     </footer>
   </div>
-  <div class="mobile-sticky"><a class="button" href="https://t.me/luminahermesagentbot">Try one free voice in Telegram</a></div>
+  <div class="mobile-sticky"><a class="button" href="https://t.me/luminahermesagentbot">Open Telegram sample</a></div>
 </body>
 </html>
