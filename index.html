@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumina — one private morning moment</title>
+<meta name="description" content="A private 30-second Bella voice manifestation each morning. Feel grounded, beautiful, supported, and closer to the woman you are becoming.">
+<style>
+  :root {
+    --ivory:#FAF9F5; --white:#FFFFFF; --slate:#171411;
+    --clay:#D97757; --olive:#788C5D; --rust:#B04A3F; --oat:#E3DACC;
+    --gray-150:#F0EEE6; --gray-300:#D1CFC5; --gray-500:#87867F; --gray-700:#5F5A51;
+    --border:1.5px solid var(--gray-300);
+    --radius-panel:12px; --radius-row:8px; --radius-pill:999px;
+    --serif: ui-serif, Georgia, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--ivory); color:var(--gray-700); font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; }
+  .page { max-width:1040px; margin:0 auto; padding:24px 24px 96px; }
+  header { display:flex; justify-content:space-between; align-items:center; gap:18px; padding:10px 0 54px; }
+  .brand { display:flex; align-items:center; gap:10px; font-family:var(--serif); font-size:24px; color:var(--slate); letter-spacing:-.02em; }
+  .brand img { width:38px; height:38px; border-radius:50%; object-fit:cover; border:1px solid var(--oat); }
+  nav { display:flex; gap:18px; align-items:center; font-family:var(--mono); font-size:12px; color:var(--gray-500); }
+  nav a { text-decoration:none; }
+  nav a:hover { color:var(--clay); }
+  .button { display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:var(--radius-pill); padding:12px 18px; background:var(--slate); color:var(--ivory); text-decoration:none; font-family:var(--mono); font-size:13px; border:1.5px solid var(--slate); box-shadow:0 8px 20px rgba(20,20,19,.10); }
+  .button.secondary { background:transparent; color:var(--slate); box-shadow:none; }
+  .hero { display:grid; grid-template-columns:minmax(0,1.05fr) 360px; gap:44px; align-items:center; }
+  .eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--gray-500); margin-bottom:12px; }
+  h1 { font-family:var(--serif); color:var(--slate); font-weight:500; font-size:58px; line-height:1.02; letter-spacing:-.035em; max-width:720px; }
+  .lead { font-size:18px; line-height:1.65; margin:20px 0 26px; max-width:620px; color:var(--gray-700); }
+  .cta-row { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .microcopy { margin-top:14px; font-family:var(--mono); font-size:12px; color:var(--gray-500); }
+  .sample-player { margin:18px 0 4px; background:var(--white); border:var(--border); border-radius:var(--radius-panel); padding:14px; max-width:520px; }
+  .sample-player p { font-family:var(--mono); font-size:11px; color:var(--gray-500); text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; }
+  .sample-player audio { width:100%; display:block; }
+  .phone { background:var(--slate); border-radius:34px; padding:14px; box-shadow:0 24px 70px rgba(20,20,19,.18); transform:rotate(1deg); }
+  .screen { background:#efeae1; border-radius:24px; min-height:610px; padding:20px 16px; overflow:hidden; }
+  .tg-top { display:flex; align-items:center; gap:10px; padding:4px 2px 18px; border-bottom:1px solid rgba(20,20,19,.08); }
+  .avatar { width:34px; height:34px; border-radius:50%; object-fit:cover; border:1px solid var(--oat); }
+  .tg-name { font-weight:700; color:var(--slate); font-size:14px; }
+  .tg-sub { font-family:var(--mono); color:var(--gray-500); font-size:10px; }
+  .bubble { background:var(--white); border-radius:18px 18px 18px 6px; padding:14px 14px; margin-top:18px; box-shadow:0 2px 0 rgba(20,20,19,.04); font-size:14px; color:var(--gray-700); }
+  .voice { margin-top:14px; display:flex; align-items:center; gap:10px; background:var(--white); border-radius:22px 22px 22px 8px; padding:10px 12px; box-shadow:0 2px 0 rgba(20,20,19,.04); }
+  .play { width:34px; height:34px; border-radius:50%; background:var(--clay); color:var(--white); display:grid; place-items:center; font-size:13px; }
+  .wave { display:flex; gap:3px; align-items:center; flex:1; }
+  .wave span { width:3px; border-radius:3px; background:var(--clay); opacity:.72; }
+  .wave span:nth-child(1){height:9px}.wave span:nth-child(2){height:18px}.wave span:nth-child(3){height:13px}.wave span:nth-child(4){height:24px}.wave span:nth-child(5){height:16px}.wave span:nth-child(6){height:28px}.wave span:nth-child(7){height:12px}.wave span:nth-child(8){height:22px}.wave span:nth-child(9){height:15px}.wave span:nth-child(10){height:20px}.wave span:nth-child(11){height:10px}.wave span:nth-child(12){height:17px}
+  .duration { font-family:var(--mono); font-size:11px; color:var(--gray-500); }
+  .section { margin-top:82px; }
+  h2 { font-family:var(--serif); color:var(--slate); font-weight:500; font-size:32px; letter-spacing:-.015em; margin-bottom:18px; }
+  .why { background:var(--white); border:var(--border); border-left:4px solid var(--clay); border-radius:var(--radius-panel); padding:26px; max-width:760px; }
+  .why p { font-size:18px; line-height:1.7; color:var(--gray-700); }
+  .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .card { background:var(--white); border:var(--border); border-radius:var(--radius-panel); padding:20px; }
+  .card strong { display:block; color:var(--slate); font-family:var(--serif); font-weight:500; font-size:22px; margin-bottom:8px; }
+  .card p { font-size:14px; color:var(--gray-700); }
+  .price { display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:stretch; }
+  .price-card { background:var(--white); border:var(--border); border-left:4px solid var(--clay); border-radius:var(--radius-panel); padding:24px; }
+  .amount { font-family:var(--serif); font-size:54px; color:var(--slate); letter-spacing:-.03em; line-height:1; margin:8px 0; }
+  .amount span { font-family:var(--mono); font-size:14px; color:var(--gray-500); }
+  ul { padding-left:20px; }
+  li { margin:8px 0; }
+  .faq details { background:var(--white); border:var(--border); border-radius:var(--radius-row); padding:14px 16px; margin:10px 0; }
+  .faq summary { cursor:pointer; color:var(--slate); font-family:var(--serif); font-size:17px; }
+  .faq p { margin-top:8px; font-size:14px; }
+  footer { margin-top:82px; padding-top:24px; border-top:1px solid var(--gray-300); display:flex; justify-content:space-between; gap:16px; color:var(--gray-500); font-family:var(--mono); font-size:12px; }
+  .mobile-sticky { display:none; }
+  @media (max-width:880px) {
+    header { padding-bottom:34px; }
+    nav a:not(.button) { display:none; }
+    .hero, .price { grid-template-columns:1fr; }
+    h1 { font-size:42px; }
+    .phone { max-width:380px; margin:0 auto; }
+    .grid-3 { grid-template-columns:1fr; }
+    footer { flex-direction:column; }
+    .page { padding-bottom:118px; }
+    .mobile-sticky { display:block; position:fixed; left:14px; right:14px; bottom:14px; z-index:10; background:rgba(250,249,245,.94); border:var(--border); border-radius:18px; padding:10px; box-shadow:0 14px 40px rgba(20,20,19,.16); backdrop-filter:blur(10px); }
+    .mobile-sticky .button { width:100%; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand"><img src="assets/lumina-profile.png" alt="Lumina profile picture"> Lumina</div>
+      <nav>
+        <a href="#why">Why</a>
+        <a href="#how">How it works</a>
+        <a href="#price">Price</a>
+        <a href="#faq">FAQ</a>
+        <a class="button" href="https://t.me/luminahermesagentbot">Try free sample</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Private morning ritual · 30-second Bella voice</p>
+          <h1>Feel chosen before the day starts asking things from you.</h1>
+          <p class="lead">Lumina is one soft morning voice note that brings you back to yourself — grounded, beautiful, supported, and closer to the woman you are becoming.</p>
+          <div class="sample-player">
+            <p>Hear the feeling first</p>
+            <audio controls preload="metadata" src="assets/lumina-website-sample.mp3">Your browser does not support audio playback.</audio>
+          </div>
+          <div class="cta-row">
+            <a class="button" href="https://t.me/luminahermesagentbot">Try free sample</a>
+            <a class="button secondary" href="#price">See membership</a>
+          </div>
+          <p class="microcopy">$99/year · one free sample · 7-day refund window · no new app to download</p>
+        </div>
+
+        <div class="phone" aria-label="Mock Telegram preview">
+          <div class="screen">
+            <div class="tg-top">
+              <img class="avatar" src="assets/lumina-profile.png" alt="Lumina">
+              <div>
+                <div class="tg-name">Lumina</div>
+                <div class="tg-sub">private morning ritual</div>
+              </div>
+            </div>
+            <div class="bubble">Good morning, Maya ✨<br><br>Before the day starts, take this moment for you.</div>
+            <div class="voice">
+              <div class="play">▶</div>
+              <div class="wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="duration">0:30</div>
+            </div>
+            <div class="bubble">Day 7. You’re showing up for her. Come back tomorrow.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="why">
+        <p class="eyebrow">Why Lumina exists</p>
+        <h2>She deserves to feel chosen before she starts giving to everyone else.</h2>
+        <div class="why"><p>Most mornings, women wake up already carrying the day. Lumina creates one private pause before the inbox, the errands, the noise, and the pressure. One soft reminder that she is grounded, beautiful, supported, and closer to the future self she keeps picturing.</p></div>
+      </section>
+
+      <section class="section" id="how">
+        <p class="eyebrow">Why it feels easy</p>
+        <h2>A ritual small enough to keep.</h2>
+        <div class="grid-3">
+          <div class="card"><strong>1 · Hear it</strong><p>Listen to the sample, then open Lumina in Telegram and enter your first name.</p></div>
+          <div class="card"><strong>2 · Receive</strong><p>Each morning, one soft Bella voice note arrives where you already are. No extra routine to manage.</p></div>
+          <div class="card"><strong>3 · Become</strong><p>Your streak grows as you keep returning to the woman you are becoming. Pause anytime.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="price">
+        <p class="eyebrow">The offer</p>
+        <h2>One year of morning support for less than a beauty appointment.</h2>
+        <div class="price">
+          <div class="price-card">
+            <p class="eyebrow">Lumina Annual</p>
+            <div class="amount">$99<span>/year</span></div>
+            <p>365 private Bella voice manifestations delivered in Telegram, one each morning.</p>
+            <div class="cta-row" style="margin-top:18px"><a class="button" href="https://t.me/luminahermesagentbot">Try free sample</a></div>
+          </div>
+          <div class="card">
+            <strong>What you get</strong>
+            <ul>
+              <li>A soft 30-second morning ritual</li>
+              <li>Premium Bella voice delivery</li>
+              <li>365 days of manifestations</li>
+              <li>Telegram delivery with no new app</li>
+              <li>Streak tracking and simple support</li>
+              <li>7-day refund window</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section faq" id="faq">
+        <p class="eyebrow">FAQ</p>
+        <h2>Quick answers before you join.</h2>
+        <details open><summary>What am I really buying?</summary><p>A feeling you can return to every morning: grounded, beautiful, supported, and connected to the woman you are becoming. The delivery is a 30-second Telegram voice note.</p></details>
+        <details><summary>Do I need to install another app?</summary><p>No. Lumina runs in Telegram. Tap Start, subscribe, and your daily voice arrives there.</p></details>
+        <details><summary>Can I get a refund?</summary><p>Yes. If Lumina is not for you, message support within 7 days of purchase. After 7 days, annual memberships are not prorated.</p></details>
+        <details><summary>Do you store my card?</summary><p>No. Payments are handled by Stripe. Lumina does not store card numbers.</p></details>
+        <details><summary>Is this therapy or medical advice?</summary><p>No. Lumina is a self-care and manifestation ritual. It is not therapy, medical advice, or a mental-health service.</p></details>
+      </section>
+    </main>
+
+    <footer>
+      <span>Lumina · private morning manifestation</span>
+      <span>Founder-run v1 · Telegram support</span>
+    </footer>
+  </div>
+  <div class="mobile-sticky"><a class="button" href="https://t.me/luminahermesagentbot">Try one free voice in Telegram</a></div>
+</body>
+</html>
