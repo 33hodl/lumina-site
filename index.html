@@ -29,6 +29,8 @@
   .lead { font-size:19px; line-height:1.55; max-width:560px; margin:18px 0 22px; }
   .cta-row { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
   .microcopy { margin-top:12px; font-family:var(--mono); font-size:12px; color:#8A847B; }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 4px; }
+  .chip { display:inline-flex; align-items:center; border:1.5px solid var(--line); background:rgba(255,255,255,.72); border-radius:var(--pill); padding:8px 11px; color:#5A554E; font-family:var(--mono); font-size:11px; }
   .telegram-note { margin-top:16px; max-width:560px; display:grid; grid-template-columns:30px 1fr; gap:11px; align-items:start; background:rgba(42,171,238,.08); border:1.5px solid rgba(42,171,238,.22); border-radius:14px; padding:13px 14px; font-size:14px; }
   .telegram-mark { width:30px; height:30px; border-radius:50%; background:var(--telegram); color:white; display:grid; place-items:center; font-weight:800; }
   .phone { background:#111; border-radius:36px; padding:14px; box-shadow:0 28px 80px rgba(23,20,17,.18); }
@@ -75,6 +77,8 @@
     .cta-row .button { width:100%; }
     .button.secondary { display:none; }
     .microcopy { font-size:11px; }
+    .chips { gap:7px; margin:16px 0 2px; }
+    .chip { font-size:10px; padding:7px 9px; }
     .telegram-note { grid-template-columns:30px minmax(0,1fr); }
     .telegram-note span:last-child { min-width:0; }
     .phone { order:2; max-width:min(350px, calc(100vw - 32px)); width:100%; margin:0 auto; transform:none; }
@@ -104,13 +108,14 @@
     <section class="hero">
       <div>
         <p class="eyebrow">Private morning voice ritual</p>
-        <h1>Feel chosen before the day starts asking things from you.</h1>
-        <p class="lead">One private Lumina voice note each morning, delivered in Telegram.</p>
+        <h1>Start your morning feeling chosen.</h1>
+        <p class="lead">One private Lumina voice note in Telegram before the world gets you.</p>
+        <div class="chips"><span class="chip">30 seconds</span><span class="chip">No app to learn</span><span class="chip">First voice free</span></div>
         <div class="cta-row">
           <a class="button" href="https://t.me/luminahermesagentbot">Open Telegram sample</a>
           <a class="button secondary" href="#price">See price</a>
         </div>
-        <p class="microcopy">One free sample · $99/year · 7-day refund window</p>
+        <p class="microcopy">$99/year · 7-day refund window · payments by Stripe</p>
         <div class="telegram-note"><span class="telegram-mark">↗</span><span><strong>This opens Telegram.</strong><br>No Telegram yet? It shows the free install first.</span></div>
       </div>
 
@@ -132,29 +137,29 @@
     </section>
 
     <section class="section" id="how">
-      <h2>A tiny ritual that is easy to start.</h2>
+      <h2>Try the feeling first. Keep it if it fits.</h2>
       <div class="steps">
-        <div class="card"><strong>1. Open Telegram</strong><p>Tap the button. If needed, Telegram guides the free app install.</p></div>
-        <div class="card"><strong>2. Hear Lumina</strong><p>Press Start, enter your first name, and receive one free voice sample.</p></div>
-        <div class="card"><strong>3. Keep it daily</strong><p>If it feels right, subscribe through Stripe and receive Lumina each morning.</p></div>
+        <div class="card"><strong>1. Tap once</strong><p>Open Lumina in Telegram. If needed, Telegram shows the free install.</p></div>
+        <div class="card"><strong>2. Hear Lumina</strong><p>Press Start, enter your first name, and receive your free sample.</p></div>
+        <div class="card"><strong>3. Keep it daily</strong><p>If it feels right, Stripe unlocks one private ritual every morning.</p></div>
       </div>
     </section>
 
     <section class="section" id="price">
-      <h2>One year of morning support for $99.</h2>
+      <h2>365 private morning rituals for $99.</h2>
       <div class="offer">
         <div class="card price">
           <p class="eyebrow">Lumina Annual</p>
           <div class="amount">$99<span>/year</span></div>
-          <p>One private voice ritual every morning in Telegram.</p>
+          <p>Less than 28 cents a day for one private morning voice ritual.</p>
           <div class="cta-row" style="margin-top:18px"><a class="button" href="https://t.me/luminahermesagentbot">Open Telegram sample</a></div>
         </div>
         <div class="card">
           <strong>Included</strong>
           <ul class="bullets">
             <li>One free voice sample before payment</li>
-            <li>365 morning voice rituals</li>
-            <li>Telegram delivery</li>
+            <li>365 private morning voice rituals</li>
+            <li>No feed, no dashboard, no habit app to manage</li>
             <li>Simple pause, privacy, support, and refund commands</li>
             <li>Stripe checkout. Lumina never stores card numbers.</li>
           </ul>
@@ -166,7 +171,7 @@
       <h2>Quick answers.</h2>
       <details open><summary>What if I do not have Telegram?</summary><p>Tap Open Telegram sample. Telegram will guide you to install the free app first, then open Lumina.</p></details>
       <details><summary>Is this therapy?</summary><p>No. Lumina is a self-care ritual, not therapy, medical advice, or a mental-health service.</p></details>
-      <details><summary>Can I get a refund?</summary><p>Yes. Message support within 7 days of purchase if Lumina is not for you.</p></details>
+      <details><summary>Can I get a refund?</summary><p>Yes. Try Lumina for 7 days. If it is not for you, message support for a refund.</p></details>
     </section>
   </main>
 
