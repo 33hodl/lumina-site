@@ -27,11 +27,6 @@
   .microcopy{margin-top:12px;font-family:var(--mono);font-size:12px;color:#8A847B}
   .telegram-note{margin-top:16px;display:grid;grid-template-columns:30px 1fr;gap:11px;align-items:start;background:rgba(42,171,248,.08);border:1.5px solid rgba(42,171,248,.22);border-radius:14px;padding:13px 14px;font-size:14px}
   .telegram-mark{width:30px;height:30px;border-radius:50%;background:var(--telegram);color:white;display:grid;place-items:center;font-weight:800}
-  .fallback{margin-top:10px;padding:12px 14px;border:1.5px solid var(--line);border-radius:14px;background:rgba(255,255,255,.72);font-size:13px;color:#5A554E}
-  .fallback strong{color:var(--ink)}
-  .fallback-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}
-  .mini-link{border:1.5px solid var(--line);border-radius:var(--pill);padding:8px 10px;text-decoration:none;font-family:var(--mono);font-size:11px;background:white;color:#5A554E}
-  .mini-link.copy{cursor:pointer}
   .phone{background:#111;border-radius:36px;padding:14px;box-shadow:0 28px 80px rgba(23,20,17,.18)}
   .screen{background:#F1ECE3;border-radius:25px;min-height:600px;padding:18px 15px;overflow:hidden}
   .tg-status{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:#817A70;padding:0 3px 10px}
@@ -90,7 +85,7 @@
     <nav>
       <a href="#why">Why</a>
       <a href="#offer">Offer</a>
-      <a class="button" data-telegram-cta href="tg://resolve?domain=luminahermesagentbot&start=start">Open free Telegram sample</a>
+      <a class="button" href="https://t.me/luminahermesagentbot">Open free Telegram sample</a>
     </nav>
   </header>
 
@@ -107,18 +102,11 @@
           <span class="chip">Private on Telegram</span>
         </div>
         <div class="cta-row">
-          <a class="button" data-telegram-cta href="tg://resolve?domain=luminahermesagentbot&start=start">Open free Telegram sample</a>
+          <a class="button" href="https://t.me/luminahermesagentbot">Open free Telegram sample</a>
           <a class="button secondary" href="#offer">See offer</a>
         </div>
         <p class="microcopy">First voice free · then $99/year if you want that feeling in your mornings</p>
-        <div class="telegram-note"><span class="telegram-mark">↗</span><span><strong>This opens Telegram.</strong><br>If you are inside the X app and Telegram does not open, tap the browser menu and choose “Open in browser,” or search <strong>@luminahermesagentbot</strong> in Telegram.</span></div>
-        <div class="fallback" id="telegram-open-status" hidden>
-          <strong>If nothing opened:</strong> some in-app browsers block Telegram handoff buttons. Open this page in Safari/Chrome or search <strong>@luminahermesagentbot</strong> in Telegram, then press <strong>/start</strong>.
-          <div class="fallback-actions">
-            <a class="mini-link" href="https://t.me/luminahermesagentbot?start=start" target="_blank" rel="noopener">Open Telegram web link</a>
-            <button class="mini-link copy" type="button" data-copy-bot>@luminahermesagentbot</button>
-          </div>
-        </div>
+        <div class="telegram-note"><span class="telegram-mark">↗</span><span><strong>This opens Telegram.</strong><br>No Telegram yet? It shows the free install first.</span></div>
       </div>
 
       <div class="phone" aria-label="Telegram preview">
@@ -149,7 +137,7 @@
           <p class="eyebrow">Lumina Annual</p>
           <div class="amount">$99<span>/year</span></div>
           <p>This is not about buying another app. It is a small yearly promise to yourself, less than many one-off self-care treats, for one private moment that helps you feel supported before the day starts taking from you.</p>
-          <div class="cta-row" style="margin-top:18px"><a class="button" data-telegram-cta href="tg://resolve?domain=luminahermesagentbot&start=start">Open free Telegram sample</a></div>
+          <div class="cta-row" style="margin-top:18px"><a class="button" href="https://t.me/luminahermesagentbot">Open free Telegram sample</a></div>
         </div>
         <div class="card" style="background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius);padding:18px">
           <strong>Included</strong>
@@ -171,32 +159,6 @@
     <span>Payments handled by Stripe</span>
   </footer>
 </div>
-<div class="mobile-sticky"><a class="button" data-telegram-cta href="tg://resolve?domain=luminahermesagentbot&start=start">Open free Telegram sample</a></div>
-<script>
-  (function(){
-    const bot = 'luminahermesagentbot';
-    const appLink = 'tg://resolve?domain=' + bot + '&start=start';
-    const status = document.getElementById('telegram-open-status');
-
-    document.querySelectorAll('[data-telegram-cta]').forEach((link) => {
-      link.addEventListener('click', (event) => {
-        event.preventDefault();
-        if (status) status.hidden = false;
-        window.location.href = appLink;
-      });
-    });
-
-    document.querySelectorAll('[data-copy-bot]').forEach((button) => {
-      button.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText('@' + bot);
-          button.textContent = 'Copied @' + bot;
-        } catch (error) {
-          button.textContent = 'Search @' + bot;
-        }
-      });
-    });
-  })();
-</script>
+<div class="mobile-sticky"><a class="button" href="https://t.me/luminahermesagentbot">Open free Telegram sample</a></div>
 </body>
 </html>
