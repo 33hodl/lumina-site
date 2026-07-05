@@ -2,7 +2,7 @@
    Free stack: Telegram start attribution now; PostHog when project key is added.
    Keep this small: one experiment, one action, no page bloat. */
 (function () {
-  var POSTHOG_KEY = ''; // Public project key from PostHog. Not a secret. Fill to enable PostHog events.
+  var POSTHOG_KEY = 'phc_wyWwPNwW4csjnTHKugV8x9596vgi4rm7MpaYsNYWaRhj'; // Public PostHog project key. Not a secret.
   var POSTHOG_HOST = 'https://us.i.posthog.com';
   var EXPERIMENT = 'cta_color_v1';
   var STORAGE_KEY = 'lumina_' + EXPERIMENT;
